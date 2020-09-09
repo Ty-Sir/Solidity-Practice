@@ -12,20 +12,15 @@ contract HelloWorld{
 
     Person[] private people;
 
-    mapping(address => uint) private personAddress;
+    mapping(address => uint) public creatorCount;
 
-
-    function createPerson(uint id, string memory name, uint age, uint height, address creator) public {
+    function createPerson(uint id, string memory name, uint age, uint height, address creator) public returns(uint){
         creator = msg.sender;
         people.push(Person(id, name, age, height, creator));
-    }
-
-    function peopleCount() view public returns(uint) {
-        return people.length;
+        creatorCount[msg.sender] ++;
     }
 
     function getPerson(uint index) public view returns(uint id, string memory name, uint age, uint height, address creator){
         return (people[index].id, people[index].name, people[index].age, people[index].height, people[index].creator);
     }
-
 }
