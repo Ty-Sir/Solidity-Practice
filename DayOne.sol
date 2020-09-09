@@ -1,46 +1,31 @@
 pragma solidity 0.5.12;
 
 contract HelloWorld{
-    Person[] public people;
-
-    uint256 public peopleCount = 0;
 
     struct Person{
         uint id;
         string name;
         uint age;
         uint height;
+        address creator;
     }
 
-    address Creator;
+    Person[] private people;
 
-    modifier onlyCreator(){
-       require(msg.sender ==Creator) ;
-       _;
+    mapping(address => uint) private personAddress;
+
+
+    function createPerson(uint id, string memory name, uint age, uint height, address creator) public {
+        creator = msg.sender;
+        people.push(Person(id, name, age, height, creator));
     }
 
-
-    constructor() public {
-        Creator = msg.sender;
+    function peopleCount() view public returns(uint) {
+        return people.length;
     }
 
-
-    function createPerson(
-        uint id,
-        string memory name,
-        uint age,
-        uint height
-    )
-        public
-        onlyCreator
-    {
-        incrementCount();
-        people.push(Person(id, name, age, height));
-    }
-
-
-    function incrementCount() internal {
-        peopleCount += 1;
+    function getPerson(uint index) public view returns(uint id, string memory name, uint age, uint height, address creator){
+        return (people[index].id, people[index].name, people[index].age, people[index].height, people[index].creator);
     }
 
 }
