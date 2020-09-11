@@ -16,11 +16,11 @@ contract HelloWorld{
 
     mapping(address => uint[]) private idArray;
 
-    function createPerson(uint id, string memory name, uint age, uint height, address creator) public returns(uint){
-        creator = msg.sender;
+    function createPerson(uint id, string memory name, uint age, uint height) public {
+        address creator = msg.sender;  //could remove this and just use "msg.sender" in lines 21,22,&23 directly;
         people.push(Person(id, name, age, height, creator));
-        creatorCount[msg.sender] ++;
-        idArray[msg.sender].push(id);
+        creatorCount[creator] ++;
+        idArray[creator].push(id);
     }
 
     function getPerson(uint index) public view returns(uint id, string memory name, uint age, uint height, address creator){
