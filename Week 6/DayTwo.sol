@@ -12,7 +12,7 @@ contract HelloWorld{
 
     event personCreated(string name, uint age, uint height, bool senior);
     event personDeleted(string name, bool senior, address deletedBy);
-    event personUpdated(string nameUpdate, uint ageUpdate, uint heightUpdate, bool seniorUpdate, string name, uint age, uint height, bool senior);
+    event personUpdated(string name, uint age, uint height, bool senior, string prevName, uint prevAge, uint prevHeight, bool prevSenior);
 
     address public owner;
 
@@ -25,6 +25,8 @@ contract HelloWorld{
         owner = msg.sender;
     }
 
+    bool exists = people[msg.sender].exists;//im at a loss
+
     mapping(address => Person) private people;
     address[] private creators;
 
@@ -34,13 +36,11 @@ contract HelloWorld{
         newPerson.name = name;
         newPerson.age = age;
         newPerson.height = height;
-        newPerson.exists = true;
 
-        string memory nameUpdate = people[msg.sender].name;
-        uint ageUpdate = people[msg.sender].age;
-        uint heightUpdate = people[msg.sender].height;
-        bool seniorUpdate = people[msg.sender].senior;
-
+        string memory prevName = people[msg.sender].name;
+        uint prevAge = people[msg.sender].age;
+        uint prevHeight = people[msg.sender].height;
+        bool prevSenior = people[msg.sender].senior;
 
 
         if (age >= 65){
@@ -72,8 +72,8 @@ contract HelloWorld{
             )
         );
 
-        if (newPerson.exists = true){
-            emit personUpdated(newPerson.name, newPerson.age, newPerson.height, newPerson.senior, nameUpdate, ageUpdate, heightUpdate, seniorUpdate);
+        if (exists) {
+            emit personUpdated(newPerson.name, newPerson.age, newPerson.height, newPerson.senior, prevName, prevAge, prevHeight, prevSenior);
         } else {
             emit personCreated(newPerson.name, newPerson.age, newPerson.height, newPerson.senior);
         }
