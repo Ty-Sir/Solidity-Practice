@@ -2,12 +2,6 @@ import "./People.sol";
 pragma solidity 0.5.12;
 
 contract Workers is People{
-    address private boss;
-
-    modifier onlyBoss(){
-        require(msg.sender == boss);
-        _;
-    }
 
     struct Worker{
         string name;
@@ -15,18 +9,21 @@ contract Workers is People{
         uint height;
         uint salary;
         bool senior;
+        address myBoss;
     }
 
-    mapping(address => uint) private Salary;
+    //mapping(address => uint) private Salary;
     mapping(address => Worker) private workers;
 
-    function createWorker(string memory name, uint age, uint height, uint salary) public{
+    function createWorker(string memory name, uint age, uint height, uint salary, address myBoss) public{
         require(age <= 75, "Worker must be 75 or younger!");
+        require(myBoss != msg.sender);
         Worker memory newWorker;
         newWorker.name = name;
         newWorker.age = age;
         newWorker.height = height;
         newWorker.salary = salary;
+        newWorker.myBoss = myBoss;
 
          if (age >= 65){
             newWorker.senior = true;
@@ -36,7 +33,6 @@ contract Workers is People{
 
         insertWorker(newWorker);
 
-        Salary[msg.sender] = salary;
         return createPerson(name, age, height);
     }
 
@@ -44,11 +40,16 @@ contract Workers is People{
         workers[msg.sender] = newWorker;
     }
 
+    function getBoss() public view returns(address){
+        return (workers[msg.sender].myBoss);
+    }
+
     function getSalary() public view returns(uint salary){
        return (workers[msg.sender].salary);
     }
 
-    function yaFired(address worker) public onlyBoss{ //anyone but the creator of the worker is the boss and can fire them
+    function yaFired(address worker) public{
+        require(msg.sender == workers[worker].myBoss);
         delete workers[worker];
         return deletePerson(worker);
     }
