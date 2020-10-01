@@ -29,7 +29,7 @@ contract ERC20 is Ownable{
         return _symbol;
     }
 
-    function decimals() public view returns (uint256) {
+    function decimals() public view returns (uint8) {
         return _decimals;
     }
 
