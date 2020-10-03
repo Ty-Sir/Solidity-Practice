@@ -7,13 +7,12 @@ contract Workers is People{
 
     function createWorker(string memory name, uint age, uint height, uint _salary) public{
         require(age <= 75, "Worker must be 75 or younger!");
-
+        createPerson(name, age, height);
         salary[msg.sender] = _salary;
-        return createPerson(name, age, height);
     }
 
     function yaFired(address worker) public {
         delete salary[worker];
-        return deletePerson(worker);
+        deletePerson(worker);
     }
 }
