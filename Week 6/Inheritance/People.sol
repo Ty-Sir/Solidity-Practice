@@ -66,17 +66,21 @@ contract People is Destroyable{
     }
 
     function getPerson() public view returns(string memory name, uint age, uint height, bool senior){
-       address creator = msg.sender;
-       return (people[creator].name, people[creator].age, people[creator].height, people[creator].senior);
+        address creator = msg.sender;
+        return (people[creator].name, people[creator].age, people[creator].height, people[creator].senior);
     }
 
-    function deletePerson(address creator) public onlyOwner {
+    function deletePerson(address creator) public {
         string memory name = people[creator].name;
         bool senior = people[creator].senior;
 
-        delete people[creator];
+        deleteHuman(creator);
         assert(people[creator].age == 0);//invariant
         emit personDeleted(name, senior, owner);
+    }
+
+    function deleteHuman(address person) internal{
+        delete people[person];
     }
 
     function getCreator(uint index) public view onlyOwner returns(address){
@@ -94,6 +98,8 @@ contract People is Destroyable{
         return toTransfer;
     }
 
+
+
     /*SAME AS ABOVE JUST DONE DIFFERENTLY--custom error handling
 
     function withdrawAll() public onlyOwner returns(uint){
@@ -106,4 +112,3 @@ contract People is Destroyable{
             return 0;
         }
     } */
-}
