@@ -3,17 +3,17 @@ pragma solidity 0.5.12;
 
 contract Workers is People{
 
-    mapping(address => uint) public Salary;
+    mapping(address => uint) public salary;
 
-    function createWorker(string memory name, uint age, uint height, uint salary) public{
+    function createWorker(string memory name, uint age, uint height, uint _salary) public{
         require(age <= 75, "Worker must be 75 or younger!");
 
-        Salary[msg.sender] = salary;
+        salary[msg.sender] = _salary;
         return createPerson(name, age, height);
     }
 
     function yaFired(address worker) public {
-        delete Salary[worker];
+        delete salary[worker];
         return deletePerson(worker);
     }
 }
