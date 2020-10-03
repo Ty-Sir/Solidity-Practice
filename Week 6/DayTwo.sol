@@ -25,8 +25,6 @@ contract HelloWorld{
         owner = msg.sender;
     }
 
-    bool exists = people[msg.sender].exists;//im at a loss
-
     mapping(address => Person) private people;
     address[] private creators;
 
@@ -36,18 +34,24 @@ contract HelloWorld{
         newPerson.name = name;
         newPerson.age = age;
         newPerson.height = height;
+        newPerson.exists = true;
+
+         if (age >= 65){
+            newPerson.senior = true;
+        } else {
+            newPerson.senior = false;
+        }
 
         string memory prevName = people[msg.sender].name;
         uint prevAge = people[msg.sender].age;
         uint prevHeight = people[msg.sender].height;
         bool prevSenior = people[msg.sender].senior;
+        bool prevExists = people[msg.sender].exists;
 
+        /*could do this (above) instead of what was done below, but uses more gas (avoids having to save each property of the
+        old data as separate local variables)vvv*/
 
-        if (age >= 65){
-            newPerson.senior = true;
-        } else {
-            newPerson.senior = false;
-        }
+        //Person memory prevPerson = people[msg.sender];
 
         insertPerson(newPerson);
         creators.push(msg.sender);
@@ -72,11 +76,12 @@ contract HelloWorld{
             )
         );
 
-        if (exists) {
+          if (prevExists){
             emit personUpdated(newPerson.name, newPerson.age, newPerson.height, newPerson.senior, prevName, prevAge, prevHeight, prevSenior);
         } else {
             emit personCreated(newPerson.name, newPerson.age, newPerson.height, newPerson.senior);
         }
+
 
     }
 
