@@ -9,6 +9,7 @@
   border-radius: 40% 40% 60% 60%;
   top: 15px;
   position: relative;
+  z-index: 6;
 }
 
 .head_marking{
@@ -17,7 +18,7 @@
   width: 10px;
   height: 20px;
   left: 95px;
-  background: rgb(204, 224, 227);
+  background: white;
 }
 
 .eyes{
@@ -27,12 +28,14 @@
 }
 
 .eye{
-  background: white;
+  background: linear-gradient(white, #bbb);
   border-radius: 50%;
   width: 50px;
   height: 50px;
   margin: 25px;
   position: relative;
+  z-index: 2;
+
 }
 
 .pupils{
@@ -46,6 +49,7 @@
   animation-name: felix;
   animation-duration: 1s;
   animation-iteration-count: infinite;
+
 }
 
 @keyframes felix{
@@ -62,15 +66,16 @@
 
 .iris{
   position: relative;
-  width: 25px;
-  height: 25px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   border: 3px solid #00e1ff;
+  bottom: 1px;
 }
 
 .pupil_highlight{
   position: relative;
-  background: white;
+  background: #eee;
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -84,10 +89,6 @@
   left: 6px;
 }
 
-.eyes:hover{
-  transform: scale(1.2);
-}
-
 .nose{
   background: black;
   width: 20px;
@@ -96,6 +97,7 @@
   top: 10px;
   left: 90px;
   position: relative;
+  z-index: 4;
 }
 
 .mouth{
@@ -106,6 +108,7 @@
   top: 20px;
   left: 87px;
   position: relative;
+  z-index: 5;
 }
 
 .whiskers{
@@ -115,6 +118,7 @@
   font-size: 60px;
   left: 5px;
   bottom: 55px;
+  z-index: 3;
 }
 
 .whisker{
@@ -131,7 +135,7 @@
 
 .ears{
   position: relative;
-  z-index: -1;
+  top: 15px;
 }
 
 .ear{
@@ -170,8 +174,26 @@
   left: 75px;
 }
 
+.ear_hair{
+  position: relative;
+  color: black;
+  font-size: 25px;
+}
+
+.left_ear_hair{
+  transform: rotate(-135deg);
+  top: 5px;
+  right: 20px;
+}
+
+.right_ear_hair{
+  transform: rotate(45deg);
+  top:45px;
+  left: 20px;
+}
+
 .body{
-  z-index: -1;
+  z-index: 2;
   width: 200px;
   height: 300px;
   background: rgb(50, 50, 50);
@@ -241,7 +263,7 @@
 }
 
 .tail{
-  z-index: -2;
+  z-index: 1;
   position: relative;
   width: 40px;
   height: 300px;
@@ -250,4 +272,9 @@
   bottom: 380px;
   left: 180px;
   background: linear-gradient(rgb(40, 40, 40),rgb(100, 100, 100));
+  transition: transform .4s ease-out;
+}
+
+.tail:hover{
+  transform: rotate(10deg);
 }
