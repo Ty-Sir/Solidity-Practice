@@ -1,0 +1,246 @@
+html{
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 775px){
+  html{
+    font-size: 75%;
+  }
+}
+
+body{
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+ul{
+  list-style: none;
+  padding: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+a{
+  text-decoration: none;
+  color: grey;
+  transform: translateY(0);
+  transition: transform .3s ease-out;
+}
+
+a:hover{
+  color: black;
+  transform: translateY(-2px);
+}
+
+.nav{
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 1;
+  box-shadow: 2px 2px 2px #f7631e;
+}
+
+.nav-list{
+  display: flex;
+  margin-right: 2rem;
+}
+
+.nav-list a{
+  display: block;
+  font-size: 1rem;
+  padding: 1.5rem;
+}
+
+.pageName {
+  font-family: "Raleway", sans-serif;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: black;
+  font-size: 2em;
+  font-style: 1000;
+  margin-right: auto;
+  padding-left: 2em;
+}
+
+.pageName:hover{
+  transform: none; 
+}
+
+@media (max-width: 755px){
+  .pageName{
+    font-size: 1.2em;
+  }
+}
+
+#navBtn{
+  display: block;
+  width: 8rem;
+  height: 4rem;
+  padding: .75rem;
+  background: linear-gradient( 145deg, #fad05c 0%, #fa5c5c 100%);
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: auto;
+  margin-bottom: auto;
+  transition: transform .3s ease-out;
+}
+
+#navBtn:hover{
+  background: linear-gradient( 145deg, #5ce0fa 0%, #5b8bfc 100%);
+  border: 2px solid #eee;
+  color: white;
+  transform: scale(1.1);
+}
+
+@media (max-width:550px) {
+  #navBtn{
+    display: none;
+  }
+}
+
+button{
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  border: none;
+}
+
+main{
+  border-radius: 0 0 20% 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient( 145deg, #fad05c 0%, #fa5c5c 100%);
+}
+
+.mainBox{
+  justify-content: center;
+  align-items: center;
+}
+
+.mainBox>button{
+  display: block;
+  width: 15rem;
+  height: 4rem;
+  padding: .75rem;
+  background: linear-gradient( 145deg, #fad05c 0%, #fa5c5c 100%);
+  color: inherit;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px #f7631e;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform .3s ease-out;
+}
+
+.mainBox>button:hover{
+  background: linear-gradient( 145deg, #5ce0fa 0%, #5b8bfc 100%);
+  border: 2px solid #eee;
+  color: white;
+  transform: scale(1.1);
+}
+
+.mainImg:hover {
+  transform: scale(1.1);
+}
+
+.mainImg{
+  transition: transform .3s ease-out;
+}
+
+.cardSection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width:1200px){
+  .cardSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.featureCard{
+  margin: 3em;
+  padding: 3em;
+  max-width: 15em;
+  border-radius: 5%;
+  border: 2px solid #eee;
+  box-shadow: 5px 5px 5px #eee;
+  justify-content: center;
+  transition: transform .3s ease-out;
+}
+
+@media (max-width:1200px){
+  .featureCard{
+    max-width:30em;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 550px){
+  .featureCard{
+    max-width: 15em;
+    font-size: 1rem;
+  }
+}
+
+.cardImg{
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1200px) {
+  .cardImg{
+    width: 350px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 550px) {
+  .cardImg{
+    width: 190px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.featureCard:hover{
+  transform: translateY(-5px);
+}
+
+.cardTitle{
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+.cardInfo{
+  text-align: center;
+}
+
+.footer{
+  font-size: .8em;
+  color: grey;
+  padding: 10px;
+  height: 3em;
+  width: 100%;
+  background: #eee;
+}
