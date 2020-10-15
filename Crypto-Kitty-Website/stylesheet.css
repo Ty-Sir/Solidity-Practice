@@ -1,5 +1,6 @@
 html{
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 @media (max-width: 775px){
@@ -29,7 +30,7 @@ a{
   transition: transform .3s ease-out;
 }
 
-a:hover{ 
+a:hover{
   color: black;
   transform: translateY(-2px);
 }
@@ -120,7 +121,7 @@ main{
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient( 145deg, #fad05c 0%, #fa5c5c 100%);
+  background-image: linear-gradient(145deg, #fad05c 0%, #fa5c5c 100%);
 }
 
 .mainBox{
@@ -164,7 +165,7 @@ main{
   align-items: center;
 }
 
-@media (max-width:1200px){
+@media (max-width:1000px){
   .cardSection{
     display: flex;
     flex-direction: column;
@@ -173,27 +174,35 @@ main{
 }
 
 .featureCard{
-  margin: 3em;
-  padding: 3em;
+  width: 30%;
+  height: 300px;
+  margin: 2em;
+  padding: 2em;
   max-width: 15em;
   border-radius: 5%;
   border: 2px solid #eee;
   box-shadow: 5px 5px 5px #eee;
   justify-content: center;
   transition: transform .3s ease-out;
+  position: relative;
 }
 
-@media (max-width:1200px){
+@media (max-width:1000px){
   .featureCard{
-    max-width:30em;
-    font-size: 1.2rem;
+    max-width:20em;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width:775px){
+  .featureCard{
+    height: 250px;
   }
 }
 
 @media (max-width: 550px){
   .featureCard{
-    max-width: 15em;
-    font-size: 1rem;
+    max-width: 25em;
   }
 }
 
@@ -204,18 +213,9 @@ main{
   margin-right: auto;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 775px) {
   .cardImg{
-    width: 350px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media (max-width: 550px) {
-  .cardImg{
-    width: 190px;
+    width: 150px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -226,6 +226,14 @@ main{
   transform: translateY(-5px);
 }
 
+.cardText{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
 .cardTitle{
   font-family: "Raleway", sans-serif;
   font-weight: 700;
@@ -234,12 +242,16 @@ main{
 
 .cardInfo{
   text-align: center;
+  font-size: 1em;
 }
 
 .footer{
+  position: static;
+  bottom: 0;
+
   font-size: .8em;
   color: grey;
-  padding: 10px;
+  padding: 20px;
   height: 3em;
   width: 100%;
   background: #eee;
