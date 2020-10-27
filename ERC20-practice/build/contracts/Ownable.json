@@ -8,15 +8,15 @@
       "type": "constructor"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/tylersiravo/Documents/ERC20-practice/contracts/Ownable.sol\":\"Ownable\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/tylersiravo/Documents/ERC20-practice/contracts/Ownable.sol\":{\"keccak256\":\"0x317552670cfae00728ab371aa9f43c696b16c37658c6270ca5b0bc4f0adcd6d3\",\"urls\":[\"bzz-raw://46c2c804b3c25d3c41b19ad2fbcc55b60c1b20fd04bf777efd41737ecaa4fdb8\",\"dweb:/ipfs/QmQ1qw2dNZGvgfzUShimhHHVqtBCf7ThyekzQxbh1hAx3Y\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550603e80605d6000396000f3fe6080604052600080fdfea265627a7a72315820acdfa60e142ef2dec2815265a7fde06801426918829dec5bfd99c6887aa8c98c64736f6c634300050c0032",
-  "deployedBytecode": "0x6080604052600080fdfea265627a7a72315820acdfa60e142ef2dec2815265a7fde06801426918829dec5bfd99c6887aa8c98c64736f6c634300050c0032",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/tylersiravo/Documents/GitHub/Solidity-Practice/ERC20-practice/contracts/Ownable.sol\":\"Ownable\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/tylersiravo/Documents/GitHub/Solidity-Practice/ERC20-practice/contracts/Ownable.sol\":{\"keccak256\":\"0x317552670cfae00728ab371aa9f43c696b16c37658c6270ca5b0bc4f0adcd6d3\",\"urls\":[\"bzz-raw://46c2c804b3c25d3c41b19ad2fbcc55b60c1b20fd04bf777efd41737ecaa4fdb8\",\"dweb:/ipfs/QmQ1qw2dNZGvgfzUShimhHHVqtBCf7ThyekzQxbh1hAx3Y\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550603e80605d6000396000f3fe6080604052600080fdfea265627a7a72315820c7d6365b5e833759d7a0d8891378ce7e9dd676e45806d2748770a4ed7a9a709d64736f6c634300050c0032",
+  "deployedBytecode": "0x6080604052600080fdfea265627a7a72315820c7d6365b5e833759d7a0d8891378ce7e9dd676e45806d2748770a4ed7a9a709d64736f6c634300050c0032",
   "sourceMap": "25:275:2:-;;;206:92;8:9:-1;5:2;;;30:1;27;20:12;5:2;206:92:2;283:10;275:5;;:18;;;;;;;;;;;;;;;;;;25:275;;;;;;",
   "deployedSourceMap": "25:275:2:-;;;;;",
   "source": "pragma solidity 0.5.12;\n\ncontract Ownable {\n  address internal owner;\n\n    modifier onlyOwner(){\n    require(msg.sender == owner);\n    _; //continue execution of fucntion--called before the function\n  }\n\n  constructor() public{  //needs to be public/can only be set once\n    owner = msg.sender;\n  }\n}\n",
-  "sourcePath": "/Users/tylersiravo/Documents/ERC20-practice/contracts/Ownable.sol",
+  "sourcePath": "/Users/tylersiravo/Documents/GitHub/Solidity-Practice/ERC20-practice/contracts/Ownable.sol",
   "ast": {
-    "absolutePath": "/Users/tylersiravo/Documents/ERC20-practice/contracts/Ownable.sol",
+    "absolutePath": "/Users/tylersiravo/Documents/GitHub/Solidity-Practice/ERC20-practice/contracts/Ownable.sol",
     "exportedSymbols": {
       "Ownable": [
         239
@@ -309,7 +309,7 @@
     "src": "0:301:2"
   },
   "legacyAST": {
-    "absolutePath": "/Users/tylersiravo/Documents/ERC20-practice/contracts/Ownable.sol",
+    "absolutePath": "/Users/tylersiravo/Documents/GitHub/Solidity-Practice/ERC20-practice/contracts/Ownable.sol",
     "exportedSymbols": {
       "Ownable": [
         239
@@ -609,12 +609,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x88D1B597944A636414984a2978DD656FF919e3f0",
-      "transactionHash": "0x03dd5f488f4b60319ed4b6e19c89545b4e95aad84743dd3160cb509daca26114"
+      "address": "0xcad8908dF5bB783c3136e9cfceC039279BE113d6",
+      "transactionHash": "0x4a6c48138f37c8df020e7dff556757a770023a1cb8159203b59edfbc6156139b"
     }
   },
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-10-20T13:32:08.753Z",
+  "updatedAt": "2020-10-20T14:09:07.272Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

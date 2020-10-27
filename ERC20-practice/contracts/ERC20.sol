@@ -42,6 +42,7 @@ contract ERC20 is Ownable{
   }
 
   function mint(address account, uint256 amount) public onlyOwner{
+    require(account != address(0), "You cannot mint to the zero address.");
     _balances[account] = _balances[account].add(amount);
     _totalSupply = _totalSupply.add(amount);
   }
@@ -50,6 +51,7 @@ contract ERC20 is Ownable{
     require(_balances[msg.sender] > 0, "Insufficient balance.");
     require(amount <= _balances[msg.sender], "You don't have that much.");
     require(msg.sender != recipient, "You cannot send money to yourself.");
+    require(recipient != address(0), "You cannot send to the zero address.");
     _balances[msg.sender] = _balances[msg.sender].sub(amount);
     _balances[recipient] = _balances[recipient].add(amount);
 
